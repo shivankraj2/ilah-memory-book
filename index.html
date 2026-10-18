@@ -1,135 +1,315 @@
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Buku Kenangan Kecil untuk Ilah</title>
+<title>Buku Kecil untuk Ilah ♡</title>
 
 <style>
-body {
-  margin: 0;
-  background: #fbf6ed;
-  color: #624d4b;
-  font-family: Georgia, serif;
-  line-height: 1.7;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:#eadbd4;
+  color:#604b48;
+  font-family:Georgia,"Times New Roman",serif;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 10px;
 }
-main {
-  max-width: 750px;
-  margin: auto;
-  padding: 20px;
+.book{
+  width:min(100%,430px);
+  min-height:610px;
+  background:#fffaf0;
+  border:1px solid #d7bba9;
+  border-radius:5px 15px 15px 5px;
+  box-shadow:-7px 0 0 #c8a58e,-10px 0 0 #ead7c6,8px 12px 28px #9c7b6a66;
+  position:relative;
+  overflow:hidden;
 }
-section {
-  background: #fffdf8;
-  border: 1px solid #e8d8ce;
-  padding: 25px;
-  margin: 20px 0;
-  text-align: center;
-  border-radius: 8px;
+.page{
+  display:none;
+  min-height:610px;
+  padding:35px 25px 75px;
+  position:relative;
+  animation:appear .45s ease;
 }
-h1, h2 {
-  color: #a86570;
-  font-weight: normal;
+.page.active{display:block}
+@keyframes appear{
+  from{opacity:.3;transform:translateX(8px)}
+  to{opacity:1;transform:translateX(0)}
 }
-h1 { font-size: 36px; }
-button {
-  background: #a86570;
-  color: white;
-  border: 0;
-  border-radius: 25px;
-  padding: 12px 20px;
-  font-size: 16px;
-  cursor: pointer;
+.cover{
+  background:linear-gradient(145deg,#fffaf0,#f8e5e1);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  border:9px double #d4ae91;
+  margin:9px;
+  min-height:590px;
 }
-.gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.ornament{color:#b87983;font-size:25px;letter-spacing:7px}
+h1{
+  font-size:37px;
+  font-weight:normal;
+  line-height:1.25;
+  color:#a45f70;
+  margin:22px 0 12px;
 }
-img {
-  width: 100%;
-  border: 7px solid white;
-  box-sizing: border-box;
-  box-shadow: 0 2px 8px #ddd;
+h2{
+  color:#a45f70;
+  font-weight:normal;
+  font-size:27px;
+  text-align:center;
 }
-.caption { font-style: italic; }
-#secret {
-  display: none;
-  background: #f9e9e8;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 8px;
+p{line-height:1.85;font-size:15px}
+.subtitle{font-style:italic;color:#92756a}
+.rule{width:65%;height:1px;background:#d8b7a5;margin:20px auto}
+.paper{
+  background:#fffdf7;
+  border:1px solid #ead7c6;
+  padding:17px;
+  margin-top:18px;
+  box-shadow:2px 3px 8px #b99d8b22;
+}
+.nav{
+  position:absolute;
+  bottom:20px;
+  left:18px;
+  right:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.nav button,.open-btn{
+  background:#a86676;
+  color:white;
+  border:0;
+  padding:11px 16px;
+  border-radius:25px;
+  font-family:inherit;
+  font-size:14px;
+  cursor:pointer;
+}
+.nav button:disabled{opacity:.3;cursor:default}
+.number{font-size:12px;color:#987b70}
+.gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px 12px;
+  margin-top:20px;
+}
+.polaroid{
+  background:white;
+  padding:7px 7px 4px;
+  box-shadow:0 3px 9px #8c716333;
+  transform:rotate(-2deg);
+}
+.polaroid:nth-child(even){transform:rotate(2deg)}
+.polaroid img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  background:#f2e5dc;
+}
+.polaroid p{
+  text-align:center;
+  font-style:italic;
+  font-size:11px;
+  margin:5px 0 2px;
+  line-height:1.5;
+}
+.final-page{padding:30px 20px 75px}
+.corner-photos{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:24px;
+}
+.corner-photos .polaroid{padding:5px 5px 3px}
+.corner-photos img{aspect-ratio:1/1}
+.corner-photos .polaroid p{font-size:10px}
+.center-note{
+  background:#f9e8e6;
+  border:1px solid #e7c9c1;
+  border-radius:8px;
+  text-align:center;
+  padding:13px 10px;
+  margin:18px 0;
+  position:relative;
+  z-index:1;
+}
+.envelope{
+  font-size:38px;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+}
+#secret{display:none;font-size:14px}
+.small{font-size:12px;text-align:center;color:#997d70}
+@media(max-width:360px){
+  .page{padding:27px 17px 75px}
+  h1{font-size:31px}
+  h2{font-size:24px}
 }
 </style>
 </head>
-
 <body>
-<main>
 
-<section>
-<p>✿ SESUATU KECIL UNTUKMU ✿</p>
-<h1>Buku Kenangan Kecil untuk Ilah</h1>
-<p><i>Beberapa kenangan, sedikit rasa syukur, dan banyak kehangatan. ♡</i></p>
-<button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
-Buka Kenangan Kita ♡
-</button>
+<main class="book">
+
+<!-- PAGE 1: COVER -->
+<section class="page cover active" id="page1">
+  <div class="ornament">✿ ❀ ✿</div>
+  <p>SEBUAH HADIAH KECIL UNTUK</p>
+  <h1>Buku Kenangan<br>untuk Ilah</h1>
+  <div class="rule"></div>
+  <p class="subtitle">Beberapa kenangan, banyak cerita,<br>dan sedikit kehangatan dari hati. ♡</p>
+  <div class="ornament">♡</div>
+  <p class="small">Dibuat dengan tulus, khusus untukmu</p>
 </section>
 
-<section id="memories">
-<h2>Kenangan Kecil Kita 📸</h2>
-<p>Momen sederhana bisa menjadi kenangan yang paling berharga.</p>
-
-<div class="gallery">
-<div><img src="photo1.jpg" alt="Kenangan 1"><p class="caption">Momen kecil yang layak disimpan ♡</p></div>
-<div><img src="photo2.jpg" alt="Kenangan 2"><p class="caption">Kenangan yang membuatku tersenyum ♡</p></div>
-<div><img src="photo3.jpg" alt="Kenangan 3"><p class="caption">Ada momen yang terasa istimewa ♡</p></div>
-<div><img src="photo4.jpg" alt="Kenangan 4"><p class="caption">Satu halaman kecil dalam buku kenangan kita ♡</p></div>
-<div><img src="photo5.jpg" alt="Kenangan 5"><p class="caption">Sepotong kecil kebahagiaan ♡</p></div>
-<div><img src="photo6.jpg" alt="Kenangan 6"><p class="caption">Momen yang ingin selalu kuingat ♡</p></div>
-<div><img src="photo7.jpg" alt="Kenangan 7"><p class="caption">Lebih banyak kenangan, lebih banyak senyuman ♡</p></div>
-<div><img src="photo8.jpg" alt="Kenangan 8"><p class="caption">Senang rasanya kenangan ini ada ♡</p></div>
-<div><img src="photo9.jpg" alt="Kenangan 9"><p class="caption">Satu kenangan lagi untuk buku kecil ini ♡</p></div>
-</div>
-
-<p>Setiap foto punya ceritanya sendiri. 💗</p>
+<!-- PAGE 2: LETTER -->
+<section class="page" id="page2">
+  <div class="ornament">✿</div>
+  <h2>Sepucuk Surat untukmu 💌</h2>
+  <div class="paper">
+    <p>Ilah yang baik,</p>
+    <p>
+      Aku bersyukur karena kita bisa saling mengenal.
+      Aku menghargai kebahagiaan dan momen-momen kecil
+      yang kamu hadirkan dalam hariku.
+    </p>
+    <p>
+      Aku berharap hidup selalu memberimu alasan untuk
+      tersenyum, keberanian untuk mengejar impianmu,
+      dan banyak kenangan indah untuk disimpan di hati.
+    </p>
+    <p>
+      Aku juga berharap, seiring berjalannya waktu,
+      kamu bisa semakin percaya padaku. Aku ingin
+      mendapatkan kepercayaanmu melalui tindakan,
+      bukan hanya kata-kata. Aku tahu kepercayaan
+      membutuhkan waktu, dan aku ingin menghargainya
+      dengan tulus.
+    </p>
+    <p>
+      Terima kasih sudah menjadi dirimu sendiri.
+      Semoga buku kecil ini bisa membuatmu tersenyum. ♡
+    </p>
+    <p><i>Dengan tulus dan hangat,</i><br>Chandan ♡</p>
+  </div>
 </section>
 
-<section>
-<h2>Hal-Hal yang Aku Hargai Darimu 💌</h2>
-
-<p style="text-align:left">
-Ilah yang baik,<br><br>
-
-Aku benar-benar bersyukur karena kita bisa saling mengenal. Aku menghargai kebahagiaan dan momen-momen kecil yang kamu hadirkan dalam hariku.
-
-Aku berharap hidup selalu memberimu alasan untuk tersenyum, keberanian untuk mengejar setiap impianmu, dan kenangan indah yang bisa kamu simpan di hati.<br><br>
-
-Aku juga berharap, seiring berjalannya waktu, kamu bisa semakin percaya padaku. Aku ingin mendapatkan kepercayaanmu melalui tindakan, bukan hanya kata-kata. Aku tahu kepercayaan membutuhkan waktu, dan aku ingin menghargainya dengan tulus.<br><br>
-
-Terima kasih sudah menjadi dirimu sendiri. Semoga buku kecil ini bisa membuatmu tersenyum setiap kali kamu membukanya.<br><br>
-
-Dengan ketulusan dan kehangatan, ♡
-</p>
+<!-- PAGE 3: MEMORIES -->
+<section class="page" id="page3">
+  <div class="ornament">✿ ❀ ✿</div>
+  <h2>Kenangan Kecil Kita 📸</h2>
+  <p class="subtitle" style="text-align:center">
+    Setiap foto punya cerita kecilnya sendiri.
+  </p>
+  <div class="gallery">
+    <div class="polaroid">
+      <img src="photo1.jpg" alt="Kenangan pertama">
+      <p>Momen kecil yang berharga ♡</p>
+    </div>
+    <div class="polaroid">
+      <img src="photo2.jpg" alt="Kenangan kedua">
+      <p>Kenangan yang membuatku tersenyum ♡</p>
+    </div>
+    <div class="polaroid">
+      <img src="photo3.jpg" alt="Kenangan ketiga">
+      <p>Satu cerita untuk diingat ♡</p>
+    </div>
+    <div class="polaroid">
+      <img src="photo4.jpg" alt="Kenangan keempat">
+      <p>Senang rasanya kenangan ini ada ♡</p>
+    </div>
+  </div>
+  <p class="small">Dan masih banyak cerita indah lainnya. ✿</p>
 </section>
 
-<section>
-<h2>Satu Kejutan Kecil Lagi 🎁</h2>
-<p>Ada pesan kecil yang menunggumu.</p>
+<!-- PAGE 4: SURPRISE WITH FOUR PHOTO CORNERS -->
+<section class="page final-page" id="page4">
+  <div class="ornament" style="text-align:center">✿ ♡ ✿</div>
+  <h2>Satu Kejutan Kecil Lagi 🎁</h2>
+  <p class="subtitle" style="text-align:center">
+    Empat kenangan kecil, satu pesan tulus untukmu.
+  </p>
 
-<button onclick="document.getElementById('secret').style.display='block'">
-Ketuk untuk Membuka ♡
-</button>
+  <div class="corner-photos">
+    <div class="polaroid">
+      <img src="photo5.jpg" alt="Kenangan kelima">
+      <p>Momen indah ♡</p>
+    </div>
+    <div class="polaroid">
+      <img src="photo6.jpg" alt="Kenangan keenam">
+      <p>Senyuman kecil ♡</p>
+    </div>
+    <div class="polaroid">
+      <img src="photo7.jpg" alt="Kenangan ketujuh">
+      <p>Cerita kita ♡</p>
+    </div>
+    <div class="polaroid">
+      <img src="photo8.jpg" alt="Kenangan kedelapan">
+      <p>Untuk dikenang ♡</p>
+    </div>
+  </div>
 
-<div id="secret">
-Aku berharap kamu selalu menemukan alasan untuk tersenyum, terus mengejar impianmu, dan mengumpulkan momen-momen indah ke mana pun hidup membawamu. Kamu pantas mendapatkan kebahagiaan. ♡
-</div>
+  <div class="center-note">
+    <p>Ada pesan kecil yang menunggumu...</p>
+    <button class="envelope" onclick="revealNote()" aria-label="Buka pesan rahasia">💌</button>
+    <p id="secret">
+      Aku berharap kamu selalu menemukan alasan untuk tersenyum,
+      terus mengejar impianmu, dan mengumpulkan momen-momen indah
+      ke mana pun hidup membawamu. Kamu pantas mendapatkan
+      kebahagiaan. Terima kasih sudah menjadi dirimu sendiri. ♡
+    </p>
+    <p class="small">Ketuk amplop untuk membuka pesan ♡</p>
+  </div>
 </section>
 
-<p style="text-align:center">
-Dibuat dengan sepenuh hati, satu kenangan pada satu waktu ✿
-</p>
+<nav class="nav">
+  <button id="prev" onclick="changePage(-1)" disabled>← Sebelumnya</button>
+  <span class="number" id="pageNumber">1 / 4</span>
+  <button id="next" onclick="changePage(1)">Berikutnya →</button>
+</nav>
 
 </main>
-</body>
-</html>
 
+<script>
+let currentPage = 1;
+const totalPages = 4;
+
+function changePage(direction) {
+  document.getElementById("page" + currentPage).classList.remove("active");
+  currentPage += direction;
+  document.getElementById("page" + currentPage).classList.add("active");
+
+  document.getElementById("pageNumber").textContent =
+    currentPage + " / " + totalPages;
+
+  document.getElementById("prev").disabled = currentPage === 1;
+  document.getElementById("next").disabled = currentPage === totalPages;
+
+  document.querySelector(".book").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function revealNote() {
+  document.getElementById("secret").style.display = "block";
+}
+</script>
+
+</body>
+                           </html>
+  
