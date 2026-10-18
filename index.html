@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buku Kenangan Kecil untuk Ilah</title>
+
+<style>
+body {
+  margin: 0;
+  background: #fbf6ed;
+  color: #624d4b;
+  font-family: Georgia, serif;
+  line-height: 1.7;
+}
+main {
+  max-width: 750px;
+  margin: auto;
+  padding: 20px;
+}
+section {
+  background: #fffdf8;
+  border: 1px solid #e8d8ce;
+  padding: 25px;
+  margin: 20px 0;
+  text-align: center;
+  border-radius: 8px;
+}
+h1, h2 {
+  color: #a86570;
+  font-weight: normal;
+}
+h1 { font-size: 36px; }
+button {
+  background: #a86570;
+  color: white;
+  border: 0;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+img {
+  width: 100%;
+  border: 7px solid white;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px #ddd;
+}
+.caption { font-style: italic; }
+#secret {
+  display: none;
+  background: #f9e9e8;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<section>
+<p>✿ SESUATU KECIL UNTUKMU ✿</p>
+<h1>Buku Kenangan Kecil untuk Ilah</h1>
+<p><i>Beberapa kenangan, sedikit rasa syukur, dan banyak kehangatan. ♡</i></p>
+<button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+Buka Kenangan Kita ♡
+</button>
+</section>
+
+<section id="memories">
+<h2>Kenangan Kecil Kita 📸</h2>
+<p>Momen sederhana bisa menjadi kenangan yang paling berharga.</p>
+
+<div class="gallery">
+<div><img src="photo1.jpg" alt="Kenangan 1"><p class="caption">Momen kecil yang layak disimpan ♡</p></div>
+<div><img src="photo2.jpg" alt="Kenangan 2"><p class="caption">Kenangan yang membuatku tersenyum ♡</p></div>
+<div><img src="photo3.jpg" alt="Kenangan 3"><p class="caption">Ada momen yang terasa istimewa ♡</p></div>
+<div><img src="photo4.jpg" alt="Kenangan 4"><p class="caption">Satu halaman kecil dalam buku kenangan kita ♡</p></div>
+<div><img src="photo5.jpg" alt="Kenangan 5"><p class="caption">Sepotong kecil kebahagiaan ♡</p></div>
+<div><img src="photo6.jpg" alt="Kenangan 6"><p class="caption">Momen yang ingin selalu kuingat ♡</p></div>
+<div><img src="photo7.jpg" alt="Kenangan 7"><p class="caption">Lebih banyak kenangan, lebih banyak senyuman ♡</p></div>
+<div><img src="photo8.jpg" alt="Kenangan 8"><p class="caption">Senang rasanya kenangan ini ada ♡</p></div>
+<div><img src="photo9.jpg" alt="Kenangan 9"><p class="caption">Satu kenangan lagi untuk buku kecil ini ♡</p></div>
+</div>
+
+<p>Setiap foto punya ceritanya sendiri. 💗</p>
+</section>
+
+<section>
+<h2>Hal-Hal yang Aku Hargai Darimu 💌</h2>
+
+<p style="text-align:left">
+Ilah yang baik,<br><br>
+
+Aku benar-benar bersyukur karena kita bisa saling mengenal. Aku menghargai kebahagiaan dan momen-momen kecil yang kamu hadirkan dalam hariku.
+
+Aku berharap hidup selalu memberimu alasan untuk tersenyum, keberanian untuk mengejar setiap impianmu, dan kenangan indah yang bisa kamu simpan di hati.<br><br>
+
+Aku juga berharap, seiring berjalannya waktu, kamu bisa semakin percaya padaku. Aku ingin mendapatkan kepercayaanmu melalui tindakan, bukan hanya kata-kata. Aku tahu kepercayaan membutuhkan waktu, dan aku ingin menghargainya dengan tulus.<br><br>
+
+Terima kasih sudah menjadi dirimu sendiri. Semoga buku kecil ini bisa membuatmu tersenyum setiap kali kamu membukanya.<br><br>
+
+Dengan ketulusan dan kehangatan, ♡
+</p>
+</section>
+
+<section>
+<h2>Satu Kejutan Kecil Lagi 🎁</h2>
+<p>Ada pesan kecil yang menunggumu.</p>
+
+<button onclick="document.getElementById('secret').style.display='block'">
+Ketuk untuk Membuka ♡
+</button>
+
+<div id="secret">
+Aku berharap kamu selalu menemukan alasan untuk tersenyum, terus mengejar impianmu, dan mengumpulkan momen-momen indah ke mana pun hidup membawamu. Kamu pantas mendapatkan kebahagiaan. ♡
+</div>
+</section>
+
+<p style="text-align:center">
+Dibuat dengan sepenuh hati, satu kenangan pada satu waktu ✿
+</p>
+
+</main>
+</body>
+</html>
+
