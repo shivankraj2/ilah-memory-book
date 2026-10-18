@@ -1,315 +1,177 @@
 
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Buku Kecil untuk Ilah ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Memory Book for Ilah 💖</title>
 
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;
-  min-height:100vh;
-  background:#eadbd4;
-  color:#604b48;
-  font-family:Georgia,"Times New Roman",serif;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px 10px;
+ margin:0;background:#f6e8e5;color:#78505c;
+ font-family:Georgia,"Times New Roman",serif;
 }
 .book{
-  width:min(100%,430px);
-  min-height:610px;
-  background:#fffaf0;
-  border:1px solid #d7bba9;
-  border-radius:5px 15px 15px 5px;
-  box-shadow:-7px 0 0 #c8a58e,-10px 0 0 #ead7c6,8px 12px 28px #9c7b6a66;
-  position:relative;
-  overflow:hidden;
+ max-width:650px;min-height:100vh;margin:auto;
+ padding:18px;background:#fff8f2;
+ box-shadow:0 0 30px #d8b5bb;
 }
 .page{
-  display:none;
-  min-height:610px;
-  padding:35px 25px 75px;
-  position:relative;
-  animation:appear .45s ease;
+ display:none;position:relative;min-height:90vh;
+ padding:30px 20px;border:1px solid #e7c3c9;
+ background:linear-gradient(#fffaf5,#fff1ee);
+ overflow:hidden;text-align:center;
 }
-.page.active{display:block}
-@keyframes appear{
-  from{opacity:.3;transform:translateX(8px)}
-  to{opacity:1;transform:translateX(0)}
+.page.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.page:before{
+ content:"🌹 🌸 🌿 🌺 🌿 🌸 🌹";
+ position:absolute;top:7px;left:0;right:0;
+ font-size:19px;letter-spacing:2px;
 }
-.cover{
-  background:linear-gradient(145deg,#fffaf0,#f8e5e1);
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  border:9px double #d4ae91;
-  margin:9px;
-  min-height:590px;
+.page:after{
+ content:"🌸 🌿 🌹 🌺 🌹 🌿 🌸";
+ position:absolute;bottom:7px;left:0;right:0;
+ font-size:19px;letter-spacing:2px;
 }
-.ornament{color:#b87983;font-size:25px;letter-spacing:7px}
-h1{
-  font-size:37px;
-  font-weight:normal;
-  line-height:1.25;
-  color:#a45f70;
-  margin:22px 0 12px;
-}
-h2{
-  color:#a45f70;
-  font-weight:normal;
-  font-size:27px;
-  text-align:center;
-}
-p{line-height:1.85;font-size:15px}
-.subtitle{font-style:italic;color:#92756a}
-.rule{width:65%;height:1px;background:#d8b7a5;margin:20px auto}
-.paper{
-  background:#fffdf7;
-  border:1px solid #ead7c6;
-  padding:17px;
-  margin-top:18px;
-  box-shadow:2px 3px 8px #b99d8b22;
-}
-.nav{
-  position:absolute;
-  bottom:20px;
-  left:18px;
-  right:18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-.nav button,.open-btn{
-  background:#a86676;
-  color:white;
-  border:0;
-  padding:11px 16px;
-  border-radius:25px;
-  font-family:inherit;
-  font-size:14px;
-  cursor:pointer;
-}
-.nav button:disabled{opacity:.3;cursor:default}
-.number{font-size:12px;color:#987b70}
+h1{font-size:35px;color:#a45e78;line-height:1.25}
+h2{color:#a45e78}
+p{font-size:17px;line-height:1.8}
+.small{font-size:14px;color:#b47b8b}
+.flowers{font-size:27px;letter-spacing:7px;margin:12px}
 .gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px 12px;
-  margin-top:20px;
+ width:100%;display:grid;grid-template-columns:1fr 1fr;
+ gap:12px;margin:20px 0;
 }
-.polaroid{
-  background:white;
-  padding:7px 7px 4px;
-  box-shadow:0 3px 9px #8c716333;
-  transform:rotate(-2deg);
+.gallery img{
+ width:100%;height:190px;object-fit:cover;
+ border:5px solid white;border-radius:5px;
+ box-shadow:0 3px 12px #d9b5bd;
 }
-.polaroid:nth-child(even){transform:rotate(2deg)}
-.polaroid img{
-  display:block;
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  background:#f2e5dc;
+.nav{display:flex;justify-content:space-between;gap:12px;margin:16px 0}
+button{
+ border:0;background:#b66f87;color:white;padding:13px 20px;
+ border-radius:25px;font-size:15px;cursor:pointer;
 }
-.polaroid p{
-  text-align:center;
-  font-style:italic;
-  font-size:11px;
-  margin:5px 0 2px;
-  line-height:1.5;
-}
-.final-page{padding:30px 20px 75px}
-.corner-photos{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  margin-top:24px;
-}
-.corner-photos .polaroid{padding:5px 5px 3px}
-.corner-photos img{aspect-ratio:1/1}
-.corner-photos .polaroid p{font-size:10px}
-.center-note{
-  background:#f9e8e6;
-  border:1px solid #e7c9c1;
-  border-radius:8px;
-  text-align:center;
-  padding:13px 10px;
-  margin:18px 0;
-  position:relative;
-  z-index:1;
-}
+button:disabled{opacity:.4}
+.letter{text-align:left}
+.letter p{font-size:16px}
 .envelope{
-  font-size:38px;
-  background:transparent;
-  border:0;
-  cursor:pointer;
+ background:#f4d9df;border:1px solid #dba8b7;
+ padding:24px 16px;border-radius:12px;width:100%;
+ cursor:pointer;margin:18px 0;
 }
-#secret{display:none;font-size:14px}
-.small{font-size:12px;text-align:center;color:#997d70}
-@media(max-width:360px){
-  .page{padding:27px 17px 75px}
-  h1{font-size:31px}
-  h2{font-size:24px}
+#surprise{display:none;background:#fff7f3;padding:15px;border-radius:12px}
+#surprise img{width:100%;max-height:220px;object-fit:cover;border-radius:10px}
+@media(max-width:400px){
+ h1{font-size:29px}.gallery img{height:150px}
+ .page{padding:30px 14px}.gallery{gap:8px}
 }
 </style>
 </head>
-<body>
 
-<main class="book">
+<body>
+<div class="book">
 
 <!-- PAGE 1: COVER -->
-<section class="page cover active" id="page1">
-  <div class="ornament">✿ ❀ ✿</div>
-  <p>SEBUAH HADIAH KECIL UNTUK</p>
-  <h1>Buku Kenangan<br>untuk Ilah</h1>
-  <div class="rule"></div>
-  <p class="subtitle">Beberapa kenangan, banyak cerita,<br>dan sedikit kehangatan dari hati. ♡</p>
-  <div class="ornament">♡</div>
-  <p class="small">Dibuat dengan tulus, khusus untukmu</p>
+<section class="page active">
+ <div class="flowers">🌺 🌹 🌸 🌷 🌹 🌺</div>
+ <p class="small">♡ A SPECIAL LITTLE GIFT FOR YOU ♡</p>
+ <h1>A Memory Book<br>for You 💖</h1>
+ <p><i>For Ilah, with all my heart ♡</i></p>
+ <div class="flowers">🌷 💗 🌷</div>
+ <p>Some people make ordinary moments turn into beautiful memories.</p>
+ <p>A little book, a lot of memories, and a special place for you. 🌸</p>
+ <p class="small">Made especially for you, Ilah ♡</p>
 </section>
 
-<!-- PAGE 2: LETTER -->
-<section class="page" id="page2">
-  <div class="ornament">✿</div>
-  <h2>Sepucuk Surat untukmu 💌</h2>
-  <div class="paper">
-    <p>Ilah yang baik,</p>
-    <p>
-      Aku bersyukur karena kita bisa saling mengenal.
-      Aku menghargai kebahagiaan dan momen-momen kecil
-      yang kamu hadirkan dalam hariku.
-    </p>
-    <p>
-      Aku berharap hidup selalu memberimu alasan untuk
-      tersenyum, keberanian untuk mengejar impianmu,
-      dan banyak kenangan indah untuk disimpan di hati.
-    </p>
-    <p>
-      Aku juga berharap, seiring berjalannya waktu,
-      kamu bisa semakin percaya padaku. Aku ingin
-      mendapatkan kepercayaanmu melalui tindakan,
-      bukan hanya kata-kata. Aku tahu kepercayaan
-      membutuhkan waktu, dan aku ingin menghargainya
-      dengan tulus.
-    </p>
-    <p>
-      Terima kasih sudah menjadi dirimu sendiri.
-      Semoga buku kecil ini bisa membuatmu tersenyum. ♡
-    </p>
-    <p><i>Dengan tulus dan hangat,</i><br>Chandan ♡</p>
-  </div>
+<!-- PAGE 2: ILAH'S PHOTOS -->
+<section class="page">
+ <h2>Little Moments of You 🌷</h2>
+ <p>Some lovely memories, saved in one little place. ♡</p>
+ <div class="gallery">
+  <img src="her1.jpg" alt="Ilah photo 1">
+  <img src="her2.jpg" alt="Ilah photo 2">
+  <img src="her3.jpg" alt="Ilah photo 3">
+  <img src="her4.jpg" alt="Ilah photo 4">
+  <img src="her5.jpg" alt="Ilah photo 5">
+  <img src="her6.jpg" alt="Ilah photo 6">
+ </div>
+ <p class="small">A little collection of beautiful moments. 💗</p>
 </section>
 
-<!-- PAGE 3: MEMORIES -->
-<section class="page" id="page3">
-  <div class="ornament">✿ ❀ ✿</div>
-  <h2>Kenangan Kecil Kita 📸</h2>
-  <p class="subtitle" style="text-align:center">
-    Setiap foto punya cerita kecilnya sendiri.
-  </p>
-  <div class="gallery">
-    <div class="polaroid">
-      <img src="photo1.jpg" alt="Kenangan pertama">
-      <p>Momen kecil yang berharga ♡</p>
-    </div>
-    <div class="polaroid">
-      <img src="photo2.jpg" alt="Kenangan kedua">
-      <p>Kenangan yang membuatku tersenyum ♡</p>
-    </div>
-    <div class="polaroid">
-      <img src="photo3.jpg" alt="Kenangan ketiga">
-      <p>Satu cerita untuk diingat ♡</p>
-    </div>
-    <div class="polaroid">
-      <img src="photo4.jpg" alt="Kenangan keempat">
-      <p>Senang rasanya kenangan ini ada ♡</p>
-    </div>
-  </div>
-  <p class="small">Dan masih banyak cerita indah lainnya. ✿</p>
+<!-- PAGE 3: LETTER -->
+<section class="page">
+ <div class="flowers">🌸 🌿 🌸</div>
+ <h2>A Little Letter for Us 💌</h2>
+ <div class="letter">
+  <p><i>Dear Ilah, ♡</i></p>
+  <p>I'm glad our paths crossed and we got the chance to know each other. From little conversations to the moments we share, I hope we keep making memories that bring smiles to both of us. 🥰</p>
+  <p>One thing I appreciate about you is the little happiness you can bring to an ordinary moment. You have your own unique way of being yourself, and that's something worth appreciating.</p>
+  <p>We both have our own dreams, little habits, and different ways of seeing things. I hope there are many more laughs, silly moments, and lovely memories waiting for us. 💗</p>
+  <p>I hope our friendship keeps growing naturally, with honesty, understanding, and trust that we build over time—one little step at a time.</p>
+  <p>Here's to the memories we've made, the smiles we've shared, and all the little moments still to come. May this book remind us of a small but meaningful part of our story. ♡</p>
+  <p><i>Made with warm wishes and a little smile,</i></p>
+  <h2>Shivank ♡</h2>
+ </div>
+ <div class="flowers">🌹 ♡ 🌹</div>
 </section>
 
-<!-- PAGE 4: SURPRISE WITH FOUR PHOTO CORNERS -->
-<section class="page final-page" id="page4">
-  <div class="ornament" style="text-align:center">✿ ♡ ✿</div>
-  <h2>Satu Kejutan Kecil Lagi 🎁</h2>
-  <p class="subtitle" style="text-align:center">
-    Empat kenangan kecil, satu pesan tulus untukmu.
-  </p>
+<!-- PAGE 4: YOUR SHARED MEMORIES -->
+<section class="page">
+ <div class="flowers">💗 🌷 💗</div>
+ <h2>Our Little World ♡</h2>
+ <p>Different moments, shared smiles, and memories that belong to our story. 🥰</p>
+ <div class="gallery">
+  <img src="us1.jpg" alt="Our memory 1">
+  <img src="us2.jpg" alt="Our memory 2">
+  <img src="us3.jpg" alt="Our memory 3">
+  <img src="us4.jpg" alt="Our memory 4">
+ </div>
 
-  <div class="corner-photos">
-    <div class="polaroid">
-      <img src="photo5.jpg" alt="Kenangan kelima">
-      <p>Momen indah ♡</p>
-    </div>
-    <div class="polaroid">
-      <img src="photo6.jpg" alt="Kenangan keenam">
-      <p>Senyuman kecil ♡</p>
-    </div>
-    <div class="polaroid">
-      <img src="photo7.jpg" alt="Kenangan ketujuh">
-      <p>Cerita kita ♡</p>
-    </div>
-    <div class="polaroid">
-      <img src="photo8.jpg" alt="Kenangan kedelapan">
-      <p>Untuk dikenang ♡</p>
-    </div>
-  </div>
+ <div class="envelope" onclick="revealSurprise()">
+  <div style="font-size:40px">💌</div>
+  <strong>One Little Surprise for You</strong>
+  <p class="small">Tap here to open ♡</p>
+ </div>
 
-  <div class="center-note">
-    <p>Ada pesan kecil yang menunggumu...</p>
-    <button class="envelope" onclick="revealNote()" aria-label="Buka pesan rahasia">💌</button>
-    <p id="secret">
-      Aku berharap kamu selalu menemukan alasan untuk tersenyum,
-      terus mengejar impianmu, dan mengumpulkan momen-momen indah
-      ke mana pun hidup membawamu. Kamu pantas mendapatkan
-      kebahagiaan. Terima kasih sudah menjadi dirimu sendiri. ♡
-    </p>
-    <p class="small">Ketuk amplop untuk membuka pesan ♡</p>
-  </div>
+ <div id="surprise">
+  <h2>Surprise, Ilah! 💖</h2>
+  <p>Thank you for being a part of this little story. I hope we make many more happy memories, share plenty of laughs, and keep treating each other with kindness. 🌸</p>
+  <p><i>Here's to more beautiful moments ahead. ♡</i></p>
+  <p>— Shivank</p>
+ </div>
+ <p class="small">Our story, one memory at a time. 🌷</p>
 </section>
 
-<nav class="nav">
-  <button id="prev" onclick="changePage(-1)" disabled>← Sebelumnya</button>
-  <span class="number" id="pageNumber">1 / 4</span>
-  <button id="next" onclick="changePage(1)">Berikutnya →</button>
-</nav>
-
-</main>
+<div class="nav">
+ <button id="prev" onclick="changePage(-1)" disabled>← Sebelumnya</button>
+ <button id="next" onclick="changePage(1)">Berikutnya →</button>
+</div>
+<p id="counter" class="small" style="text-align:center">Page 1 of 4 ♡</p>
+</div>
 
 <script>
-let currentPage = 1;
-const totalPages = 4;
-
-function changePage(direction) {
-  document.getElementById("page" + currentPage).classList.remove("active");
-  currentPage += direction;
-  document.getElementById("page" + currentPage).classList.add("active");
-
-  document.getElementById("pageNumber").textContent =
-    currentPage + " / " + totalPages;
-
-  document.getElementById("prev").disabled = currentPage === 1;
-  document.getElementById("next").disabled = currentPage === totalPages;
-
-  document.querySelector(".book").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
+let currentPage=0;
+const pages=document.querySelectorAll(".page");
+function changePage(direction){
+ pages[currentPage].classList.remove("active");
+ currentPage=Math.max(0,Math.min(pages.length-1,currentPage+direction));
+ pages[currentPage].classList.add("active");
+ document.getElementById("prev").disabled=currentPage===0;
+ document.getElementById("next").disabled=currentPage===pages.length-1;
+ document.getElementById("counter").textContent=
+ "Page "+(currentPage+1)+" of "+pages.length+" ♡";
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-
-function revealNote() {
-  document.getElementById("secret").style.display = "block";
+function revealSurprise(){
+ const surprise=document.getElementById("surprise");
+ surprise.style.display="block";
+ document.querySelector(".envelope").style.display="none";
 }
 </script>
-
 </body>
-                           </html>
+                                                   </html>
   
+
+      
